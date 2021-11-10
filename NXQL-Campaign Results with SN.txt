@@ -1,0 +1,11 @@
+
+(select ((device name)(user #"campaign:PC Refresh, Not Yet Invited - V8 - Round 2/Owner")(device device_serial_number)(user name))
+   (from (device user)        
+       (with user_activity
+           (where user_activity (eq type (enum interaction)))                      
+               (between now-1d now)
+               )
+       )
+   (limit 200000)
+   )  
+ 
