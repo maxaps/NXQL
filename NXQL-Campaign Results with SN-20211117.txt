@@ -1,0 +1,26 @@
+
+(select (
+			(device name)
+			(device device_serial_number)
+			(user name)
+			(device #"action:Launch Refresh Campaign/CurrentUserName")
+			(device #"action:Error Item 2: PC Refresh -> Launch PC Refresh Campaign/CurrentUserName")
+        	(user #"campaign:PC Refresh, Not Yet Invited - V8 - Round 2/Address")
+        )
+
+   (from (device user)
+        
+   		(with user_activity
+            
+            (where user_activity
+            	
+                (eq type 
+					(enum logon)
+				)
+			)
+          
+					(between now-30d now)
+		)
+	)
+            (limit 200000)
+ )
