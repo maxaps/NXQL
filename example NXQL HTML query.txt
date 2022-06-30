@@ -1,1 +1,0 @@
-https://sslebxcob03.northgrum.com:1671/2/query?platform=windows&query=(select%20(name)%20(from device)&format=csv
